@@ -35,10 +35,11 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/whoami", function(req, res){
 	//console.log(req)
 	const headers = req.headers;
-	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	var ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	var software = headers['user-agent']
 	var language = headers['accept-language']
-	res.json({ip, language, software})
+	console.log({ipaddress})
+	res.json({ipaddress, language, software})
 })
 
 
